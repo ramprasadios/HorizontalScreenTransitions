@@ -1,4 +1,4 @@
-# HorizontalScreenTransitions
+# Horizontal Menu
 This is a simple iOS Application consists of horizontal scrollable and Tabbed menu Application.
 
 # Prerequisites 
