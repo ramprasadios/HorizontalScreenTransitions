@@ -29,6 +29,7 @@ class MenuViewController: UIViewController {
     var masterVc: MasterViewController?
     var currentIndex: Int = 0
 
+    //View Life Cycle:
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupDataSrource()
@@ -73,8 +74,10 @@ class MenuViewController: UIViewController {
     }    
 }
 
+//MARK:- Helper Methods:
 extension MenuViewController {
     
+    //Creates a data source array for Horizontal Menu with tapped state.
     func setupDataSrource() {
         for (index, menuItem) in self.menuList.enumerated() {
             if index == 0 {
@@ -87,10 +90,12 @@ extension MenuViewController {
         }
     }
     
+    //Controls Initial Navigation upon App Launch.
     func initialSetup() {
         masterVc?.segueIdentifierReceivedFromParent(identifier: self.segueIdentifiers[0])
     }
     
+    //Updates Menu List Objects upon - Tap on Menu or Scroll using swipe Gestures
     func updateMenuObjects() {
         let indexPath = IndexPath(row: currentIndex, section: 0)
         for (index, _) in self.menuDataSource.enumerated() {
@@ -104,7 +109,7 @@ extension MenuViewController {
     }
 }
 
-//
+//MARK:- Collection View Data Source Methods:
 extension MenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -123,11 +128,11 @@ extension MenuViewController: UICollectionViewDataSource {
             cell?.menuTitleLabel.textColor = UIColor.black
             cell?.menuTitleLabel.backgroundColor = UIColor.white
         }
-        
         return cell!
     }
 }
 
+//MARK:- Collection View Delegate Source Methods:
 extension MenuViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -145,6 +150,3 @@ extension MenuViewController: UICollectionViewDelegate {
     }
 }
 
-extension MenuViewController: UICollectionViewDelegateFlowLayout {
-
-}

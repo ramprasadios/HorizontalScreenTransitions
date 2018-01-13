@@ -21,6 +21,7 @@ class MasterViewController: UIViewController {
 
     private var segueIdentifier: String!
     
+    //View Life Cycle:
     override func viewDidLoad() {
         super.viewDidLoad()
     }
